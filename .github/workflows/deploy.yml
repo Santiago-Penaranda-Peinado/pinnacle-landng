@@ -39,5 +39,5 @@ jobs:
           SOURCE: "dist/"
           # Carpeta de destino en el servidor
           TARGET: ${{ secrets.TARGET_DIR }}
-          # Opción para borrar archivos en el destino que ya no existen en el origen
+          # Opción para borrar archivos en el destino que ya no existen en el origen 
           ARGS: --delete
