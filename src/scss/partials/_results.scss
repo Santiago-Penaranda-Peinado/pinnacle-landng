@@ -2,364 +2,76 @@
 @use 'variables' as *;
 
 .results-section {
-  padding: 120px 0;
-  background: linear-gradient(135deg, var(--color-white) 0%, #f8fafc 50%, var(--color-white) 100%);
-  position: relative;
-  overflow: hidden;
-
-  // Elementos decorativos de fondo
-  .results-decoration {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-
-    .decoration-circle {
-      position: absolute;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(252, 163, 17, 0.03) 0%, transparent 70%);
-      
-      &.circle-1 {
-        width: 300px;
-        height: 300px;
-        top: -150px;
-        right: -150px;
-        animation: float 8s ease-in-out infinite;
-      }
-      
-      &.circle-2 {
-        width: 200px;
-        height: 200px;
-        bottom: -100px;
-        left: -100px;
-        animation: float 6s ease-in-out infinite reverse;
-      }
-    }
-  }
-
-  .container {
-    position: relative;
-    z-index: 2;
-  }
+  padding: 80px 0;
+  background-color: var(--color-light-gray);
 
   .section-header {
     text-align: center;
-    margin-bottom: 5rem;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.8s 0.2s ease-out forwards;
+    margin-bottom: 60px;
 
     .pre-title {
       display: inline-block;
       color: var(--color-accent);
-      font-weight: 700;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 1rem;
-      position: relative;
-      padding: 0.5rem 1.5rem;
-      background: rgba(252, 163, 17, 0.1);
-      border-radius: 50px;
-      border: 1px solid rgba(252, 163, 17, 0.2);
-
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -8px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 40px;
-        height: 2px;
-        background: var(--color-accent);
-        border-radius: 2px;
-      }
+      font-weight: 600;
+      margin-bottom: 10px;
     }
 
     h2 {
-      font-size: clamp(2.2rem, 5vw, 3rem);
       color: var(--color-dark-blue);
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-      line-height: 1.2;
-      text-wrap: balance;
-    }
-
-    .section-subtitle {
-      font-size: 1.2rem;
-      color: var(--color-light-blue);
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
-      opacity: 0.8;
-      font-weight: 500;
+      margin-bottom: 15px;
     }
   }
 
   &__grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
-    position: relative;
-    z-index: 2;
+    gap: 30px;
 
     @media (min-width: 768px) {
       grid-template-columns: repeat(2, 1fr);
-      gap: 2.5rem;
     }
 
     @media (min-width: 992px) {
       grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
     }
   }
 
   .result-card {
-    background: var(--color-white);
-    padding: 3rem 2rem;
-    border-radius: 20px;
-    border: 1px solid rgba(13, 27, 42, 0.08);
-    box-shadow: 
-      0 4px 20px rgba(13, 27, 42, 0.05),
-      0 1px 3px rgba(13, 27, 42, 0.02);
+    background-color: var(--color-white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
     text-align: center;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    
-    // Estado inicial para animación
-    opacity: 0;
-    transform: translateY(40px) scale(0.95);
+    transition: transform 0.3s ease;
 
-    .card-hover-effect {
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(252, 163, 17, 0.03),
-        transparent
-      );
-      transition: left 0.6s ease;
-      z-index: 1;
+    &:hover {
+      transform: translateY(-10px);
     }
 
     .card-icon {
-      width: 90px;
-      height: 90px;
-      background: linear-gradient(135deg, 
-        rgba(252, 163, 17, 0.1) 0%, 
-        rgba(252, 163, 17, 0.05) 50%,
-        rgba(252, 163, 17, 0.08) 100%);
-      border: 2px solid rgba(252, 163, 17, 0.15);
+      width: 70px;
+      height: 70px;
+      background-color: var(--color-accent);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 2rem;
-      position: relative;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      z-index: 2;
-
-      .icon-glow {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(
-          circle,
-          rgba(252, 163, 17, 0.2) 0%,
-          transparent 70%
-        );
-        border-radius: 50%;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-      }
+      margin: 0 auto 20px;
 
       i {
-        font-size: 2.2rem;
-        color: var(--color-accent);
-        transition: all 0.4s ease;
-        position: relative;
-        z-index: 2;
+        font-size: 1.8rem;
+        color: var(--color-dark-blue);
       }
     }
 
     h3 {
       color: var(--color-dark-blue);
-      margin-bottom: 1.25rem;
-      font-size: 1.3rem;
-      font-weight: 700;
-      line-height: 1.3;
-      position: relative;
-      z-index: 2;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
     }
 
     p {
       color: var(--color-light-blue);
-      line-height: 1.7;
-      font-size: 1rem;
-      opacity: 0.9;
-      position: relative;
-      z-index: 2;
-    }
-
-    // Estados de hover
-    &:hover {
-      transform: translateY(-12px) scale(1.02);
-      box-shadow: 
-        0 20px 50px rgba(13, 27, 42, 0.15),
-        0 8px 25px rgba(252, 163, 17, 0.1);
-      border-color: rgba(252, 163, 17, 0.3);
-
-      .card-hover-effect {
-        left: 100%;
-      }
-
-      .card-icon {
-        background: linear-gradient(135deg, 
-          rgba(252, 163, 17, 0.15) 0%, 
-          rgba(252, 163, 17, 0.08) 50%,
-          rgba(252, 163, 17, 0.12) 100%);
-        border-color: rgba(252, 163, 17, 0.3);
-        transform: scale(1.1) rotate(5deg);
-
-        .icon-glow {
-          opacity: 1;
-        }
-
-        i {
-          transform: scale(1.1);
-          filter: drop-shadow(0 4px 8px rgba(252, 163, 17, 0.3));
-        }
-      }
-
-      h3 {
-        color: var(--color-dark-blue);
-      }
-    }
-
-    // Estados de focus para accesibilidad
-    &:focus-within {
-      outline: 2px solid var(--color-accent);
-      outline-offset: 2px;
-    }
-  }
-
-  // Clase que añadiremos con JS para activar la animación
-  .result-card.is-visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-}
-
-// Keyframes para animaciones
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-20px) rotate(180deg);
-  }
-}
-
-// Media Queries Responsive
-@media (max-width: 1024px) {
-  .results-section {
-    padding: 100px 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .results-section {
-    padding: 80px 0;
-
-    .section-header {
-      margin-bottom: 4rem;
-    }
-
-    &__grid {
-      gap: 2rem;
-    }
-
-    .result-card {
-      padding: 2.5rem 1.5rem;
-
-      .card-icon {
-        width: 80px;
-        height: 80px;
-        margin-bottom: 1.5rem;
-
-        i {
-          font-size: 2rem;
-        }
-      }
-
-      h3 {
-        font-size: 1.2rem;
-      }
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .results-section {
-    padding: 60px 0;
-
-    .result-card {
-      padding: 2rem 1.25rem;
-
-      .card-icon {
-        width: 70px;
-        height: 70px;
-        margin-bottom: 1.25rem;
-
-        i {
-          font-size: 1.8rem;
-        }
-      }
-
-      h3 {
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
-      }
-
-      p {
-        font-size: 0.95rem;
-      }
-    }
-  }
-}
-
-// Soporte para reduced motion
-@media (prefers-reduced-motion: reduce) {
-  .results-section {
-    * {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-
-    .result-card {
-      opacity: 1;
-      transform: none;
     }
   }
 }

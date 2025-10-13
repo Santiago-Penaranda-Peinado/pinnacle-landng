@@ -258,129 +258,13 @@ const enhanceClientsSection = () => {
 
   window.addEventListener('scroll', handleScroll);
 };
-/**
- * FUNCIÓN PARA ANIMAR LAS TARJETAS DE RESULTADOS AL HACER SCROLL
- * Versión mejorada con efectos más sofisticados
- */
-const initResultsAnimation = () => {
-  const resultCards = document.querySelectorAll('.result-card');
-  const sectionHeader = document.querySelector('.results-section .section-header');
 
-  if (!resultCards.length) return;
 
-  // Configuración del observer para las tarjetas
-  const cardObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const card = entry.target;
-        
-        // Añadimos la clase para activar la animación CSS
-        card.classList.add('is-visible');
-        
-        // Añadimos un pequeño delay para el efecto de escalonado
-        const index = Array.from(resultCards).indexOf(card);
-        card.style.transitionDelay = `${index * 150}ms`;
-        
-        // Dejamos de observar el elemento una vez que ha sido animado
-        cardObserver.unobserve(card);
-      }
-    });
-  }, { 
-    threshold: 0.15, // La animación se dispara cuando el 15% de la tarjeta es visible
-    rootMargin: '0px 0px -50px 0px' // Se activa un poco antes de que entre completamente
-  });
-
-  // Observamos cada tarjeta
-  resultCards.forEach(card => {
-    cardObserver.observe(card);
-  });
-
-  // Observer adicional para el header de la sección
-  if (sectionHeader) {
-    const headerObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // El header ya tiene su animación CSS, así que solo necesitamos observarlo
-          headerObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    headerObserver.observe(sectionHeader);
-  }
-};
-
-/**
- * FUNCIÓN PARA MEJORAR LAS INTERACCIONES DE LAS TARJETAS
- */
-const enhanceResultsInteractions = () => {
-  const resultCards = document.querySelectorAll('.result-card');
-
-  resultCards.forEach(card => {
-    // Mejorar la accesibilidad del teclado
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        card.click();
-      }
-    });
-
-    // Efecto de ripple al hacer clic
-    card.addEventListener('click', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const ripple = document.createElement('div');
-      ripple.style.cssText = `
-        position: absolute;
-        top: ${y}px;
-        left: ${x}px;
-        width: 0;
-        height: 0;
-        border-radius: 50%;
-        background: rgba(252, 163, 17, 0.3);
-        transform: translate(-50%, -50%);
-        animation: ripple 0.6s ease-out;
-        pointer-events: none;
-        z-index: 1;
-      `;
-      
-      card.appendChild(ripple);
-      
-      setTimeout(() => {
-        ripple.remove();
-      }, 600);
-    });
-  });
-};
-
-// Añadir el CSS para el efecto ripple dinámicamente
-const addRippleStyles = () => {
-  if (!document.querySelector('#ripple-styles')) {
-    const style = document.createElement('style');
-    style.id = 'ripple-styles';
-    style.textContent = `
-      @keyframes ripple {
-        to {
-          width: 200px;
-          height: 200px;
-          opacity: 0;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-  }
-};
-
-/// En tu función principal, actualiza las inicializaciones:
+// --- INICIALIZAMOS TODAS LAS FUNCIONES ---
   initHeaderScroll();
   initMobileMenu();
-  initHeroSection();
+  initHeroSection(); // Simplemente la llamas directamente
   initClientsCarousel();
-
-  addRippleStyles();
-  initResultsAnimation();
-  enhanceResultsInteractions();
+  enhanceClientsSection();
 
 });
