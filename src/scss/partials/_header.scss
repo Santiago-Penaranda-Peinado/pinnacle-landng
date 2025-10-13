@@ -7,81 +7,421 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 20px 0;
-  transition: background-color 0.3s ease, padding 0.3s ease;
+  padding: 1.5rem 0;
+  background: linear-gradient(
+    180deg,
+    rgba(13, 27, 42, 0.95) 0%,
+    rgba(13, 27, 42, 0.8) 50%,
+    transparent 100%
+  );
+  backdrop-filter: blur(0px);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(252, 163, 17, 0.1) 0%,
+      transparent 50%,
+      rgba(13, 27, 42, 0.9) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
 
   &__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  &__logo img {
-    height: 40px;
-    width: auto;
-  }
-
-  &__nav ul {
-    display: flex;
-    gap: 30px;
-  }
-  
-  &__nav a {
-    font-weight: 600;
     position: relative;
-    padding-bottom: 5px;
+    z-index: 2;
+  }
 
-    // Efecto de línea inferior al pasar el mouse
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: var(--color-accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
+  // Logo Styles
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
     }
 
-    &:hover::after {
-      transform: scaleX(1);
+    &-img {
+      height: 2.8rem;
+      width: auto;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      filter: brightness(1.2);
+    }
+
+    &-text {
+      font-family: var(--font-primary);
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--color-white);
+      letter-spacing: -0.5px;
     }
   }
-  
-  // Ocultamos la navegación y el botón de contacto en móvil
-  &__nav, &__cta {
-    display: none;
+
+  // Navigation Styles
+  &__nav {
+    &-list {
+      display: flex;
+      gap: 2.5rem;
+      margin: 10px;
+      padding: 0;
+    }
+
+    &-item {
+      list-style: none;
+    }
+
+    &-link {
+      position: relative;
+      display: flex;
+      align-items: center;
+      color: var(--color-white);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      overflow: hidden;
+      transition: color 0.3s ease;
+
+      .nav-link {
+        &__text {
+          position: relative;
+          z-index: 2;
+          transition: transform 0.3s ease;
+        }
+
+        &__hover-effect {
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(252, 163, 17, 0.1),
+            transparent
+          );
+          transition: left 0.6s ease;
+        }
+      }
+
+      &:hover {
+        color: var(--color-accent);
+
+        .nav-link__text {
+          transform: translateX(5px);
+        }
+
+        .nav-link__hover-effect {
+          left: 100%;
+        }
+
+        &::after {
+          transform: scaleX(1);
+          opacity: 1;
+        }
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          var(--color-accent),
+          rgba(252, 163, 17, 0.5)
+        );
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    opacity 0.3s ease;
+        opacity: 0;
+      }
+    }
   }
-  
+
+  // CTA Button Styles
+  &__actions {
+    display: flex;
+    align-items: center;
+  }
+
+  &__cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(
+      135deg,
+      var(--color-accent) 0%,
+      #e69500 100%
+    );
+    color: var(--color-dark-blue);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: none;
+    cursor: pointer;
+
+    .cta {
+      &-text {
+        position: relative;
+        z-index: 2;
+        transition: transform 0.3s ease;
+      }
+
+      &-icon {
+        position: relative;
+        z-index: 2;
+        transition: transform 0.3s ease;
+        font-size: 0.8rem;
+      }
+
+      &-hover-effect {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.6s ease;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 
+        0 10px 25px rgba(252, 163, 17, 0.3),
+        0 5px 10px rgba(252, 163, 17, 0.2);
+
+      .cta-text {
+        transform: translateX(-2px);
+      }
+
+      .cta-icon {
+        transform: translateX(4px);
+      }
+
+      .cta-hover-effect {
+        left: 100%;
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  // Mobile Toggle Styles
   &__mobile-toggle {
-    display: block; // Mostramos el botón de hamburguesa en móvil
+    display: none;
     background: none;
     border: none;
-    color: var(--color-white);
-    font-size: 1.5rem;
+    padding: 0.5rem;
     cursor: pointer;
+    position: relative;
+    z-index: 1001;
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      width: 24px;
+      height: 18px;
+      position: relative;
+      transition: transform 0.3s ease;
+
+      &-line {
+        display: block;
+        height: 2px;
+        width: 100%;
+        background: var(--color-white);
+        border-radius: 1px;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform-origin: center;
+
+        &--top {
+          transform: translateY(0);
+        }
+
+        &--middle {
+          margin: 6px 0;
+          opacity: 1;
+        }
+
+        &--bottom {
+          transform: translateY(0);
+        }
+      }
+    }
+
+    &[aria-expanded="true"] {
+      .hamburger {
+        &-line--top {
+          transform: translateY(8px) rotate(45deg);
+        }
+
+        &-line--middle {
+          opacity: 0;
+          transform: scaleX(0);
+        }
+
+        &-line--bottom {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  // Mobile Navigation Hidden by Default
+  &__nav, &__actions {
+    display: none;
+  }
+
+  &__mobile-toggle {
+    display: block;
   }
 }
 
-// Estilos para pantallas de escritorio
-@media (min-width: 768px) {
+// Scrolled State
+.site-header.scrolled {
+  background: rgba(13, 27, 42, 0.98);
+  backdrop-filter: blur(20px) saturate(180%);
+  padding: 0.75rem 0;
+  box-shadow: 
+    0 4px 20px rgba(13, 27, 42, 0.15),
+    0 1px 3px rgba(13, 27, 42, 0.1);
+
+  &::before {
+    opacity: 1;
+  }
+
+  .site-header__logo-img {
+    height: 2.2rem;
+  }
+
+  .site-header__cta {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.85rem;
+  }
+}
+
+// Desktop Styles
+@media (min-width: 992px) {
   .site-header {
-    &__nav, &__cta {
-      display: flex; // Mostramos nav y cta
-      align-items: center;
+    padding: 1.75rem 0;
+
+    &__nav, &__actions {
+      display: flex;
     }
-    
+
     &__mobile-toggle {
-      display: none; // Ocultamos el botón de hamburguesa
+      display: none;
+    }
+
+    &__nav-link {
+      font-size: 1rem;
+      padding: 5px;
+    }
+  }
+
+  .site-header.scrolled {
+    padding: 0.875rem 0;
+  }
+}
+
+// Large Desktop Styles
+@media (min-width: 1200px) {
+  .site-header {
+    &__nav-list {
+      gap: 3rem;
+    }
+
+    &__cta {
+      padding: 0.875rem 1.75rem;
+      font-size: 0.95rem;
     }
   }
 }
 
-// Clase que se añadirá con JS al hacer scroll
-.scrolled {
-  background-color: var(--color-dark-blue);
-  padding: 15px 0;
-  box-shadow: var(--shadow);
+// Mobile Navigation Active State
+@media (max-width: 991px) {
+  .site-header__nav.is-active {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(13, 27, 42, 0.98);
+    backdrop-filter: blur(20px);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: slideInFromTop 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    .site-header__nav-list {
+      flex-direction: column;
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .site-header__nav-link {
+      font-size: 1.25rem;
+      padding: 1rem 2rem;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Reduced Motion Support
+@media (prefers-reduced-motion: reduce) {
+  .site-header {
+    transition: none;
+    
+    * {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

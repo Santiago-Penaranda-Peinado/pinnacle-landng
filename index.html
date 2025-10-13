@@ -18,75 +18,383 @@
   <header class="site-header">
     <div class="container site-header__container">
       <a href="#hero" class="site-header__logo">
-        <div class="logo-placeholder">PINNACLE</div>
+        <img src="/logo/logotop.png" alt="Pinnacle Communications Logo" class="site-header__logo-img">
+        <span class="site-header__logo-text">Pinnacle</span>
       </a>
-      <nav class="site-header__nav">
-        <ul>
-          <li><a href="#resultados">Resultados</a></li>
-          <li><a href="#diferenciadores">Diferenciadores</a></li>
-          <li><a href="#proceso">Proceso</a></li>
-          <li><a href="#clientes">Clientes</a></li>
+
+      <nav id="main-navigation" class="site-header__nav" aria-label="Navegación principal">
+        <ul class="site-header__nav-list">
+          <li class="site-header__nav-item">
+            <a href="#hero" class="site-header__nav-link">
+              <span class="nav-link__text">Inicio</span>
+              <span class="nav-link__hover-effect"></span>
+            </a>
+          </li>
+          <li class="site-header__nav-item">
+            <a href="#resultados" class="site-header__nav-link">
+              <span class="nav-link__text">Resultados</span>
+              <span class="nav-link__hover-effect"></span>
+            </a>
+          </li>
+          <li class="site-header__nav-item">
+            <a href="#diferenciadores" class="site-header__nav-link">
+              <span class="nav-link__text">Diferenciadores</span>
+              <span class="nav-link__hover-effect"></span>
+            </a>
+          </li>
+          <li class="site-header__nav-item">
+            <a href="#proceso" class="site-header__nav-link">
+              <span class="nav-link__text">Proceso</span>
+              <span class="nav-link__hover-effect"></span>
+            </a>
+          </li>
+          <li class="site-header__nav-item">
+            <a href="#clientes" class="site-header__nav-link">
+              <span class="nav-link__text">Clientes</span>
+              <span class="nav-link__hover-effect"></span>
+            </a>
+          </li>
         </ul>
       </nav>
-      <a href="https://wa.me/525554316702?text=Hola,%20quisiera%20más%20información%20sobre%20los%20cursos." target="_blank" class="btn btn--primary site-header__cta">
-        <i class="fab fa-whatsapp"></i> <span>Contactar</span>
-      </a>
-      <button class="site-header__mobile-toggle" aria-label="Abrir menú">
-        <i class="fa-solid fa-bars"></i>
+
+      <div class="site-header__actions">
+        <a href="https://wa.me/525554316702?text=Hola,%20quisiera%20más%20información%20sobre%20los%20cursos." 
+          target="_blank" 
+          class="btn btn--primary site-header__cta"
+          aria-label="Contactar por WhatsApp">
+          <span class="cta-text">Contactar</span>
+          <i class="fa-solid fa-arrow-right cta-icon"></i>
+          <div class="cta-hover-effect"></div>
+        </a>
+      </div>
+
+      <button class="site-header__mobile-toggle" 
+              aria-label="Abrir menú" 
+              aria-expanded="false" 
+              aria-controls="main-navigation"
+              data-mobile-toggle>
+        <div class="hamburger">
+          <span class="hamburger-line hamburger-line--top"></span>
+          <span class="hamburger-line hamburger-line--middle"></span>
+          <span class="hamburger-line hamburger-line--bottom"></span>
+        </div>
       </button>
     </div>
   </header>
 
   <main>
     <section id="hero" class="hero-section">
-      <div class="hero-section__background"></div>
+      <div class="hero-section__video-background">
+        <video playsinline autoplay muted loop poster="/hero/Captura.png">
+          <source src="/hero/0_People_Business_1920x1010.webm" type="video/webm">
+          <source src="/hero/0_People_Business_1920x1010.mp4" type="video/mp4">
+        </video>
+      </div>
+
       <div class="container hero-section__container">
+        <!-- Contenido Principal -->
         <div class="hero-section__content">
-          <h1 class="hero-section__title">Cursos de Liderazgo e Innovación para <span>Equipos de Alto Rendimiento</span></h1>
-          <p class="hero-section__subtitle">Para directivos, mandos medios y colaboradores. Contribuimos con el andamiaje para que tu empresa eleve desempeños con modalidades presenciales y en línea.</p>
-          <div class="hero-section__contact-info">
-            <p><i class="fas fa-phone"></i> Llama o envía un WhatsApp al <strong>55 5431 6702</strong></p>
-          </div>
-        </div>
-        <div class="hero-section__form-wrapper">
-          <form id="contacto" class="contact-form" action="enviar-formulario.php" method="POST">
-            <h2 class="contact-form__title">Solicita Información</h2>
-            <p>Deja tus datos y te contactaremos a la brevedad.</p>
-            <div class="form-group">
-              <input type="text" name="nombre" placeholder="Nombre *" required>
+          <div class="hero-section__content-inner">
+            <!-- Badge de confianza -->
+            <div class="hero-badge">
+              <i class="fa-solid fa-star"></i>
+              <span>+11 años de experiencia</span>
             </div>
-            <div class="form-group">
-              <input type="email" name="email" placeholder="Email *" required>
-            </div>
-            <div class="form-group">
-              <input type="tel" name="telefono" placeholder="Teléfono">
-            </div>
-            <div class="form-group">
-              <div class="human-verification">
-                <p>Por favor, prueba que eres humano seleccionando la estrella:</p>
-                <div class="stars">
-                  <input type="radio" id="star1" name="human" value="1" required>
-                  <label for="star1"><i class="far fa-star"></i></label>
+            
+            <h1 class="hero-section__title">
+              <span class="title-line">Cursos de Liderazgo</span>
+              <span class="title-line">e Innovación para</span>
+              <span class="title-highlight">Equipos de Alto Rendimiento</span>
+            </h1>
+            
+            <p class="hero-section__subtitle">
+              Para directivos, mandos medios y colaboradores. Contribuimos con el andamiaje para que tu empresa eleve desempeños con modalidades presenciales y en línea.
+            </p>
+            
+            <div class="hero-section__contact-info">
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <span class="contact-label">Llama o envía un WhatsApp</span>
+                  <strong class="contact-number">55 5431 6702</strong>
                 </div>
               </div>
             </div>
-            <button type="submit" class="btn btn--accent">Enviar Ahora</button>
-            <small class="contact-form__privacy">Privacidad garantizada.</small>
+
+            <!-- Trust indicators para móvil -->
+            <div class="hero-trust-mobile">
+              <div class="trust-item">
+                <i class="fa-solid fa-shield-check"></i>
+                <span>Certificación internacional</span>
+              </div>
+              <div class="trust-item">
+                <i class="fa-solid fa-users"></i>
+                <span>+500 empresas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario -->
+        <div class="hero-section__form-wrapper">
+          <form id="contacto" class="contact-form" action="enviar-formulario.php" method="POST" novalidate>
+            <div class="form-header">
+              <h2 class="contact-form__title">Solicita Información</h2>
+              <p class="contact-form__description">Deja tus datos y te contactaremos a la brevedad.</p>
+            </div>
+
+            <div class="form-fields">
+              <div class="form-group">
+                <input type="text" id="nombre" name="nombre" required class="form-group__input">
+                <label for="nombre" class="form-group__label">
+                  <i class="fa-solid fa-user"></i>
+                  Nombre *
+                </label>
+                <div class="form-group__focus-line"></div>
+              </div>
+
+              <div class="form-group">
+                <input type="email" id="email" name="email" required class="form-group__input">
+                <label for="email" class="form-group__label">
+                  <i class="fa-solid fa-envelope"></i>
+                  Email *
+                </label>
+                <div class="form-group__focus-line"></div>
+              </div>
+
+              <div class="form-group">
+                <input type="tel" id="telefono" name="telefono" class="form-group__input">
+                <label for="telefono" class="form-group__label">
+                  <i class="fa-solid fa-phone"></i>
+                  Teléfono
+                </label>
+                <div class="form-group__focus-line"></div>
+              </div>
+              
+              <div class="form-group form-group--checkbox">
+                <input type="checkbox" id="privacidad" name="privacidad" required class="form-group__checkbox-input">
+                <label for="privacidad" class="form-group__checkbox-label">
+                  <span class="checkbox-custom"></span>
+                  Acepto las políticas de privacidad.
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn--accent contact-form__submit">
+              <span class="btn-text">Enviar Ahora</span>
+              <i class="fa-solid fa-arrow-right btn-icon"></i>
+              <div class="btn-hover-effect"></div>
+            </button>
+            
+            <div class="form-footer">
+              <small class="contact-form__privacy">
+                <i class="fa-solid fa-lock"></i>
+                <span>Privacidad 100% garantizada</span>
+              </small>
+            </div>
           </form>
         </div>
       </div>
+      
+      <!-- Scroll Indicator -->
+      <a href="#clientes" class="scroll-down-indicator" aria-label="Ir a la siguiente sección">
+        <div class="mouse">
+          <div class="mouse-wheel"></div>
+        </div>
+        <span class="scroll-text">Scroll</span>
+      </a>
     </section>
 
     <section id="clientes" class="clients-section">
       <div class="container">
-        <h2 class="clients-section__title">Algunos de Nuestros Clientes</h2>
-        <div class="clients-section__logos">
-          <div class="client-logo">American Cancer Society</div>
-          <div class="client-logo">FedEx</div>
-          <div class="client-logo">General Motors</div>
-          <div class="client-logo">HP</div>
-          <div class="client-logo">Microsoft</div>
-          <div class="client-logo">KPMG</div>
+        <!-- Header de la sección -->
+        <div class="clients-section__header">
+          <span class="section-pre-title">Confianza y Credibilidad</span>
+          <h2 class="clients-section__title">Empresas que Confían en Nuestra Experiencia</h2>
+          <p class="clients-section__subtitle">
+            Más de una década colaborando con organizaciones líderes a nivel mundial
+          </p>
+        </div>
+
+        <!-- Estadísticas rápidas -->
+        <div class="clients-stats">
+          <div class="stat-item">
+            <div class="stat-number" data-count="11">0</div>
+            <div class="stat-label">Años de Experiencia</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="500">0</div>
+            <div class="stat-label">Empresas Atendidas</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="50">0</div>
+            <div class="stat-label">Países</div>
+          </div>
+        </div>
+
+        <!-- Carrusel principal -->
+        <div class="clients-carousel-wrapper">
+          <div class="swiper clients-carousel">
+            <div class="swiper-wrapper">
+              <!-- Logos de clientes -->
+              <div class="swiper-slide client-logo">
+                <div class="logo-container">
+                  <img src="/clients/acs.png" alt="American Cancer Society" loading="lazy">
+                  <div class="logo-overlay">
+                    <span>American Cancer Society</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide client-logo">
+                <div class="logo-container">
+                  <img src="/clients/FedEx-logo.png" alt="FedEx" loading="lazy">
+                  <div class="logo-overlay">
+                    <span>FedEx</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide client-logo">
+                <div class="logo-container">
+                  <img src="/clients/Kraft-Foods-Logo-20092.png" alt="Kraft Foods" loading="lazy">
+                  <div class="logo-overlay">
+                    <span>Kraft Foods</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide client-logo">
+                <div class="logo-container">
+                  <img src="/clients/Morgan-Stanley-Logo-2001.png" alt="Morgan Stanley" loading="lazy">
+                  <div class="logo-overlay">
+                    <span>Morgan Stanley</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide client-logo">
+                <div class="logo-container">
+                  <img src="/clients/Microsoft_logo_(2012).svg.png" alt="Microsoft" loading="lazy">
+                  <div class="logo-overlay">
+                    <span>Microsoft</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide client-logo">
+                <div class="logo-container">
+                  <img src="/clients/General-Motors-GM-Logo.png" alt="General Motors" loading="lazy">
+                  <div class="logo-overlay">
+                    <span>General Motors</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide client-logo">
+                <div class="logo-container">
+                  <img src="/clients/3m.png" alt="3M" loading="lazy">
+                  <div class="logo-overlay">
+                    <span>3M</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide client-logo">
+                <div class="logo-container">
+                  <img src="/clients/HP_Inc.-Logo.wine.png" alt="HP Inc." loading="lazy">
+                  <div class="logo-overlay">
+                    <span>HP Inc.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide client-logo">
+                <div class="logo-container">
+                  <img src="/clients/Pfizer_logo.png" alt="Pfizer" loading="lazy">
+                  <div class="logo-overlay">
+                    <span>Pfizer</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide client-logo">
+                <div class="logo-container">
+                  <img src="/clients/Northwestern_Medicine_logo.svg.png" alt="Northwestern Medicine" loading="lazy">
+                  <div class="logo-overlay">
+                    <span>Northwestern Medicine</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide client-logo">
+                <div class="logo-container">
+                  <img src="/clients/lenovo.png" alt="Lenovo" loading="lazy">
+                  <div class="logo-overlay">
+                    <span>Lenovo</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide client-logo">
+                <div class="logo-container">
+                  <img src="/clients/gmx-logo.png" alt="GMX" loading="lazy">
+                  <div class="logo-overlay">
+                    <span>GMX</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide client-logo">
+                <div class="logo-container">
+                  <img src="/clients/state-farm-logo-sha_website.png" alt="State Farm" loading="lazy">
+                  <div class="logo-overlay">
+                    <span>State Farm</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide client-logo">
+                <div class="logo-container">
+                  <img src="/clients/WIP-FM_logo.png" alt="WIP FM" loading="lazy">
+                  <div class="logo-overlay">
+                    <span>WIP FM</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide client-logo">
+                <div class="logo-container">
+                  <img src="/clients/prudential-logo-png_seeklogo-266622.png" alt="Prudential" loading="lazy">
+                  <div class="logo-overlay">
+                    <span>Prudential</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide client-logo">
+                <div class="logo-container">
+                  <img src="/clients/creative.png" alt="Creative" loading="lazy">
+                  <div class="logo-overlay">
+                    <span>Creative</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide client-logo">
+                <div class="logo-container">
+                  <img src="/clients/sr.png" alt="Sr. P" loading="lazy">
+                  <div class="logo-overlay">
+                    <span>Sr. P</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navegación personalizada -->
+          <div class="carousel-navigation">
+            <button class="carousel-nav-btn carousel-nav-prev" aria-label="Clientes anteriores">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="carousel-pagination"></div>
+            <button class="carousel-nav-btn carousel-nav-next" aria-label="Siguientes clientes">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- CTA sutil -->
+        <div class="clients-cta">
+          <p>¿Listo para unirte a estas empresas líderes?</p>
+          <a href="#contacto" class="btn btn--outline">
+            <span>Iniciar Conversación</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
         </div>
       </div>
     </section>
@@ -96,38 +404,77 @@
         <div class="section-header">
           <span class="pre-title">Ventajas Competitivas</span>
           <h2>Resultados que Impulsan tu Organización</h2>
+          <p class="section-subtitle">
+            Cada programa está diseñado para generar un impacto medible y duradero en tu equipo
+          </p>
         </div>
+        
         <div class="results-section__grid">
           <div class="result-card">
-            <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+            <div class="card-icon">
+              <i class="fa-solid fa-brain"></i>
+              <div class="icon-glow"></div>
+            </div>
             <h3>Potenciarán sus habilidades de liderazgo</h3>
-            <p>Desarrolla habilidades directivas para una gestión más efectiva.</p>
+            <p>Desarrolla habilidades directivas para una gestión más efectiva y estratégica.</p>
+            <div class="card-hover-effect"></div>
           </div>
+          
           <div class="result-card">
-            <div class="card-icon"><i class="fa-solid fa-lightbulb"></i></div>
+            <div class="card-icon">
+              <i class="fa-solid fa-lightbulb"></i>
+              <div class="icon-glow"></div>
+            </div>
             <h3>Aprenderán técnicas para innovar</h3>
-            <p>Aprende técnicas probadas para generar soluciones creativas.</p>
+            <p>Aprende técnicas probadas para generar soluciones creativas y disruptivas.</p>
+            <div class="card-hover-effect"></div>
           </div>
+          
           <div class="result-card">
-            <div class="card-icon"><i class="fa-solid fa-sitemap"></i></div>
+            <div class="card-icon">
+              <i class="fa-solid fa-sitemap"></i>
+              <div class="icon-glow"></div>
+            </div>
             <h3>Lograrán delegar con efectividad</h3>
-            <p>Domina el arte de delegar para maximizar la productividad del equipo.</p>
+            <p>Domina el arte de delegar para maximizar la productividad y el potencial del equipo.</p>
+            <div class="card-hover-effect"></div>
           </div>
+          
           <div class="result-card">
-            <div class="card-icon"><i class="fa-solid fa-people-group"></i></div>
+            <div class="card-icon">
+              <i class="fa-solid fa-people-group"></i>
+              <div class="icon-glow"></div>
+            </div>
             <h3>Formarán equipos eficaces</h3>
-            <p>Construye equipos de trabajo balanceados y de alto rendimiento.</p>
+            <p>Construye equipos de trabajo balanceados, cohesionados y de alto rendimiento.</p>
+            <div class="card-hover-effect"></div>
           </div>
+          
           <div class="result-card">
-            <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
+            <div class="card-icon">
+              <i class="fa-solid fa-rocket"></i>
+              <div class="icon-glow"></div>
+            </div>
             <h3>Lograrán explotar su potencial</h3>
-            <p>Logra metas ambiciosas apoyándote en el potencial creativo de tu gente.</p>
+            <p>Logra metas ambiciosas apoyándote en el potencial creativo y talento de tu gente.</p>
+            <div class="card-hover-effect"></div>
           </div>
+          
           <div class="result-card">
-            <div class="card-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+            <div class="card-icon">
+              <i class="fa-solid fa-handshake-angle"></i>
+              <div class="icon-glow"></div>
+            </div>
             <h3>Coaching Post-Curso</h3>
-            <p>Recibe 3 meses de coaching para asegurar la implementación del aprendizaje.</p>
+            <p>Recibe 3 meses de coaching personalizado para asegurar la implementación del aprendizaje.</p>
+            <div class="card-hover-effect"></div>
           </div>
+        </div>
+
+        <!-- Elemento decorativo -->
+        <div class="results-decoration">
+          <div class="decoration-circle circle-1"></div>
+          <div class="decoration-circle circle-2"></div>
         </div>
       </div>
     </section>
