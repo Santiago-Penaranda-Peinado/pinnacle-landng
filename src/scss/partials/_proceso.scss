@@ -1,0 +1,64 @@
+// src/scss/partials/_proceso.scss
+@use 'variables' as *;
+
+.process-section {
+  padding: 80px 0;
+  background-color: var(--color-white);
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+
+    .pre-title {
+      display: inline-block;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: var(--color-dark-blue);
+      margin-bottom: 15px;
+    }
+  }
+
+  &__steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .process-step {
+    text-align: center;
+    position: relative;
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background-color: var(--color-accent);
+      color: var(--color-dark-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 auto 25px;
+    }
+
+    h3 {
+      color: var(--color-dark-blue);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    p {
+      color: var(--color-light-blue);
+      line-height: 1.6;
+    }
+  }
+}

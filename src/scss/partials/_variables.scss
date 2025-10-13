@@ -1,0 +1,20 @@
+// src/scss/partials/_variables.scss
+
+:root {
+  // Paleta de Colores
+  --color-dark-blue: #0D1B2A;
+  --color-mid-blue: #1B263B;
+  --color-light-blue: #415A77;
+  --color-light-gray: #E0E1DD;
+  --color-white: #FFFFFF;
+  --color-accent: #FCA311; // Un dorado/ámbar para los CTA
+
+  // Tipografía
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Lato', sans-serif;
+
+  // Otros
+  --border-radius: 8px;
+  --container-width: 1140px;
+  --shadow: 0 8px 24px rgba(13, 27, 42, 0.1);
+}

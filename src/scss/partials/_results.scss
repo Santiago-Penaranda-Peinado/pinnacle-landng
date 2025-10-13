@@ -1,0 +1,77 @@
+// src/scss/partials/_results.scss
+@use 'variables' as *;
+
+.results-section {
+  padding: 80px 0;
+  background-color: var(--color-light-gray);
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+
+    .pre-title {
+      display: inline-block;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: var(--color-dark-blue);
+      margin-bottom: 15px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 992px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .result-card {
+    background-color: var(--color-white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-10px);
+    }
+
+    .card-icon {
+      width: 70px;
+      height: 70px;
+      background-color: var(--color-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+
+      i {
+        font-size: 1.8rem;
+        color: var(--color-dark-blue);
+      }
+    }
+
+    h3 {
+      color: var(--color-dark-blue);
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    p {
+      color: var(--color-light-blue);
+    }
+  }
+}

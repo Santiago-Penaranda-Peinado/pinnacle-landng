@@ -1,0 +1,17 @@
+// src/scss/style.scss
+
+// Parciales de base
+@use 'partials/variables';
+@use 'partials/reset';
+@use 'partials/layout'; 
+
+// Parciales de componentes
+@use 'partials/header'; 
+@use 'partials/hero';   
+@use 'partials/mobile-nav';
+@use 'partials/clients';
+@use 'partials/results';
+@use 'partials/diferenciadores';
+@use 'partials/proceso';
+@use 'partials/cta-final';
+@use 'partials/footer';

@@ -1,0 +1,156 @@
+// src/scss/partials/_hero.scss
+@use 'variables' as *;
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 60px;
+  color: var(--color-white);
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-dark-blue);
+    // Overlay oscuro para que el texto sea legible
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(13, 27, 42, 0.7);
+    }
+  }
+
+  &__container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  &__title {
+    color: var(--color-white);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    
+    span {
+      color: var(--color-accent); // Resaltamos parte del texto
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.1rem;
+    color: var(--color-light-gray);
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+  
+  &__contact-info {
+    margin-bottom: 20px;
+    
+    p {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      
+      i {
+        color: var(--color-accent);
+      }
+    }
+  }
+  
+  // Estilos para el formulario de contacto
+  .contact-form {
+    background-color: var(--color-white);
+    color: var(--color-dark-blue);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    
+    &__title {
+      margin-bottom: 5px;
+    }
+    p {
+      margin-bottom: 20px;
+      color: var(--color-light-blue);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--color-light-gray);
+      border-radius: 5px;
+      
+      &:focus {
+        outline: 2px solid var(--color-accent);
+        border-color: var(--color-accent);
+      }
+    }
+    
+    .human-verification {
+      p {
+        margin-bottom: 10px;
+      }
+      
+      .stars {
+        display: flex;
+        justify-content: center;
+        
+        input[type="radio"] {
+          display: none;
+        }
+        
+        label {
+          cursor: pointer;
+          font-size: 1.5rem;
+          color: var(--color-light-gray);
+          transition: color 0.2s;
+        }
+        
+        input[type="radio"]:checked + label i {
+          color: var(--color-accent);
+        }
+      }
+    }
+    
+    .btn {
+      width: 100%;
+    }
+
+    &__privacy {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.8rem;
+      color: #999;
+    }
+  }
+}
+
+// Layout de dos columnas para pantallas de escritorio
+@media (min-width: 992px) {
+  .hero-section {
+    &__container {
+      flex-direction: row;
+      align-items: center;
+      gap: 60px;
+    }
+
+    &__content, &__form-wrapper {
+      flex: 1;
+    }
+
+    &__title {
+      font-size: 3.5rem;
+    }
+  }
+}

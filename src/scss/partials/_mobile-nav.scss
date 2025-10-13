@@ -1,0 +1,46 @@
+// src/scss/partials/_mobile-nav.scss
+@use 'variables' as *;
+
+// Estilos para el body cuando el menú está abierto
+.no-scroll {
+  overflow: hidden;
+}
+
+// Estilos para la navegación en pantallas móviles
+@media (max-width: 767px) {
+  .site-header__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-dark-blue);
+    
+    // Oculto por defecto
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+
+    ul {
+      flex-direction: column;
+      text-align: center;
+      gap: 30px;
+    }
+
+    a {
+      font-size: 1.5rem;
+      color: var(--color-white);
+    }
+
+    // Clase que añade el JS para mostrar el menú
+    &.is-active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+}

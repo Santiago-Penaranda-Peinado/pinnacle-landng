@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinnacle Communications - Cursos de Liderazgo e Innovación</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__container">
+      <a href="#hero" class="site-header__logo">
+        <div class="logo-placeholder">PINNACLE</div>
+      </a>
+      <nav class="site-header__nav">
+        <ul>
+          <li><a href="#resultados">Resultados</a></li>
+          <li><a href="#diferenciadores">Diferenciadores</a></li>
+          <li><a href="#proceso">Proceso</a></li>
+          <li><a href="#clientes">Clientes</a></li>
+        </ul>
+      </nav>
+      <a href="https://wa.me/525554316702?text=Hola,%20quisiera%20más%20información%20sobre%20los%20cursos." target="_blank" class="btn btn--primary site-header__cta">
+        <i class="fab fa-whatsapp"></i> <span>Contactar</span>
+      </a>
+      <button class="site-header__mobile-toggle" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero-section">
+      <div class="hero-section__background"></div>
+      <div class="container hero-section__container">
+        <div class="hero-section__content">
+          <h1 class="hero-section__title">Cursos de Liderazgo e Innovación para <span>Equipos de Alto Rendimiento</span></h1>
+          <p class="hero-section__subtitle">Para directivos, mandos medios y colaboradores. Contribuimos con el andamiaje para que tu empresa eleve desempeños con modalidades presenciales y en línea.</p>
+          <div class="hero-section__contact-info">
+            <p><i class="fas fa-phone"></i> Llama o envía un WhatsApp al <strong>55 5431 6702</strong></p>
+          </div>
+        </div>
+        <div class="hero-section__form-wrapper">
+          <form id="contacto" class="contact-form" action="enviar-formulario.php" method="POST">
+            <h2 class="contact-form__title">Solicita Información</h2>
+            <p>Deja tus datos y te contactaremos a la brevedad.</p>
+            <div class="form-group">
+              <input type="text" name="nombre" placeholder="Nombre *" required>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Email *" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" name="telefono" placeholder="Teléfono">
+            </div>
+            <div class="form-group">
+              <div class="human-verification">
+                <p>Por favor, prueba que eres humano seleccionando la estrella:</p>
+                <div class="stars">
+                  <input type="radio" id="star1" name="human" value="1" required>
+                  <label for="star1"><i class="far fa-star"></i></label>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn--accent">Enviar Ahora</button>
+            <small class="contact-form__privacy">Privacidad garantizada.</small>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="clientes" class="clients-section">
+      <div class="container">
+        <h2 class="clients-section__title">Algunos de Nuestros Clientes</h2>
+        <div class="clients-section__logos">
+          <div class="client-logo">American Cancer Society</div>
+          <div class="client-logo">FedEx</div>
+          <div class="client-logo">General Motors</div>
+          <div class="client-logo">HP</div>
+          <div class="client-logo">Microsoft</div>
+          <div class="client-logo">KPMG</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultados" class="results-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="pre-title">Ventajas Competitivas</span>
+          <h2>Resultados que Impulsan tu Organización</h2>
+        </div>
+        <div class="results-section__grid">
+          <div class="result-card">
+            <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+            <h3>Potenciarán sus habilidades de liderazgo</h3>
+            <p>Desarrolla habilidades directivas para una gestión más efectiva.</p>
+          </div>
+          <div class="result-card">
+            <div class="card-icon"><i class="fa-solid fa-lightbulb"></i></div>
+            <h3>Aprenderán técnicas para innovar</h3>
+            <p>Aprende técnicas probadas para generar soluciones creativas.</p>
+          </div>
+          <div class="result-card">
+            <div class="card-icon"><i class="fa-solid fa-sitemap"></i></div>
+            <h3>Lograrán delegar con efectividad</h3>
+            <p>Domina el arte de delegar para maximizar la productividad del equipo.</p>
+          </div>
+          <div class="result-card">
+            <div class="card-icon"><i class="fa-solid fa-people-group"></i></div>
+            <h3>Formarán equipos eficaces</h3>
+            <p>Construye equipos de trabajo balanceados y de alto rendimiento.</p>
+          </div>
+          <div class="result-card">
+            <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
+            <h3>Lograrán explotar su potencial</h3>
+            <p>Logra metas ambiciosas apoyándote en el potencial creativo de tu gente.</p>
+          </div>
+          <div class="result-card">
+            <div class="card-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+            <h3>Coaching Post-Curso</h3>
+            <p>Recibe 3 meses de coaching para asegurar la implementación del aprendizaje.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="diferenciadores" class="diff-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="pre-title">Nuestra Metodología</span>
+          <h2>Alianzas Estratégicas que Generan Valor</h2>
+          <p>Con más de 11 años de experiencia, nuestro diferenciador se basa en alianzas con organizaciones internacionales líderes en capacitación.</p>
+        </div>
+        <div class="diff-section__grid">
+          <div class="diff-card">
+            <div class="diff-card__icon"><i class="fa-solid fa-book"></i></div>
+            <h3>The Leadership Challenge</h3>
+            <p>El programa más confiable sobre cómo ser un mejor líder. Su evaluación 360° online, LPI®, mide las Cinco Prácticas de Liderazgo Ejemplares.</p>
+          </div>
+          <div class="diff-card">
+            <div class="diff-card__icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h3>Foursight</h3>
+            <p>Metodología especializada en detectar atributos personales para innovar y formar equipos eficientes, midiendo preferencias y no solo habilidades.</p>
+          </div>
+          <div class="diff-card">
+            <div class="diff-card__icon"><i class="fa-solid fa-palette"></i></div>
+            <h3>Creative Education Foundation</h3>
+            <p>Avanza la creatividad y resolución de problemas con el método CPS (Creative Problem Solving), originador de la técnica "tormenta de ideas".</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="proceso" class="process-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="pre-title">¿Cómo Trabajamos?</span>
+          <h2>Un Traje a la Medida para tu Empresa</h2>
+        </div>
+        <div class="process-section__steps">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <h3>Diagnóstico Inicial</h3>
+            <p>Le damos prioridad a entender tus deficiencias y objetivos para adaptar nuestros programas a las necesidades reales de tu empresa.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <h3>Orientación y Diseño</h3>
+            <p>Te orientamos para elegir el curso y la metodología más adecuada, diseñando una intervención con impactos predecibles y duraderos.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <h3>Implementación y Seguimiento</h3>
+            <p>Impartimos talleres presenciales o remotos y garantizamos el aprendizaje con una constancia de valor curricular y 3 meses de coaching.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta-final" class="cta-final-section">
+      <div class="container cta-final-section__container">
+        <div class="cta-final-section__image">
+          <div class="image-placeholder">
+            <i class="fas fa-user-tie"></i>
+            <p>Alfonso Cortina</p>
+          </div>
+        </div>
+        <div class="cta-final-section__content">
+          <p class="quote">"Te atenderé personalmente para diseñar la estrategia clave que necesita tu equipo."</p>
+          <span class="cta-final-section__name">Alfonso Cortina</span>
+          <span class="cta-final-section__title">Director General, Pinnacle Communications S. A.</span>
+          <a href="#contacto" class="btn btn--accent">¡Desarrolla tu Liderazgo Ahora!</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Copyright © 2025 The Pinnacle Communications S. A. Todos los Derechos Reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

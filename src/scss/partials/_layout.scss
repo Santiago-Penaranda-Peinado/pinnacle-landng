@@ -1,0 +1,65 @@
+// src/scss/partials/_layout.scss
+@use 'variables' as *;
+
+body {
+  font-family: var(--font-secondary);
+  background-color: var(--color-white);
+  color: var(--color-light-blue);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+// Estilos base para los encabezados
+h1, h2, h3 {
+  font-family: var(--font-primary);
+  color: var(--color-dark-blue);
+  font-weight: 700;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.25rem; }
+
+// Estilos base para los botones
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &--primary {
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+  }
+
+  &--accent {
+    background-color: var(--color-accent);
+    color: var(--color-dark-blue);
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+}
+
+// Placeholder para logo
+.logo-placeholder {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--color-white);
+  padding: 8px 16px;
+  border: 2px solid var(--color-accent);
+  border-radius: var(--border-radius);
+}

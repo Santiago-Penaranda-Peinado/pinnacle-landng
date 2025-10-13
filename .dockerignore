@@ -1,0 +1,14 @@
+# .dockerignore
+
+# Dependencias y archivos de compilación
+node_modules
+dist
+
+# Git y Docker
+.git
+.github
+Dockerfile
+docker-compose.yml
+
+# Logs
+npm-debug.log*
