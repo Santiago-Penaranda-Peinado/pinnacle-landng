@@ -5,7 +5,7 @@ name: Build and Deploy Pinnacle Landing
 on:
   push:
     branches:
-      - master # O la rama que uses para producción, ej: 'main'
+      - main # O la rama que uses para producción, ej: 'main'
 
 jobs:
   build-and-deploy:
