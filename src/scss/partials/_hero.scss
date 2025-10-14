@@ -69,7 +69,7 @@
 
   // Contenido principal
   &__content {
-    order: 2;
+    order: 1;
     
     @media (min-width: 992px) {
       order: 1;
@@ -221,7 +221,7 @@
 
   // Wrapper del formulario
   &__form-wrapper {
-    order: 1;
+    order: 2;
     
     @media (min-width: 992px) {
       order: 2;
@@ -620,6 +620,14 @@
     &__subtitle {
       text-align: center;
     }
+  }
+
+  // Hide scroll indicator on small screens to avoid overlap
+  .scroll-down-indicator {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 }
 

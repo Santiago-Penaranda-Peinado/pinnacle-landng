@@ -1,0 +1,131 @@
+// src/scss/partials/_locations.scss
+@use 'variables' as *;
+
+.locations-section {
+  padding: 80px 0;
+  background-color: var(--color-mid-blue);
+  // Sutil patrón de fondo para dar textura
+  background-image: radial-gradient(var(--color-light-blue) 0.5px, transparent 0.5px);
+  background-size: 15px 15px;
+  position: relative;
+  overflow: hidden;
+
+  // Overlay para suavizar el patrón
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(27, 38, 59, 0.95);
+  }
+
+  &__container {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 3rem;
+
+    @media (min-width: 992px) {
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 5rem;
+    }
+  }
+
+  // Estilos para la columna visual (izquierda)
+  &__visual {
+    text-align: center;
+    color: var(--color-white);
+
+    .map-icon-wrapper {
+      font-size: 8rem;
+      color: var(--color-accent);
+      margin-bottom: 2rem;
+      text-shadow: 0 0 30px rgba(252, 163, 17, 0.4);
+      animation: float-anim 3s ease-in-out infinite;
+    }
+    
+    .visual__tagline {
+      font-family: var(--font-primary);
+      font-size: 1.5rem;
+      line-height: 1.4;
+      font-weight: 600;
+      color: var(--color-light-gray);
+    }
+  }
+  
+  // Estilos para la columna de contenido (derecha)
+  &__content {
+    color: var(--color-light-gray);
+
+    .section-header {
+      margin-bottom: 2.5rem;
+      text-align: left;
+
+      .pre-title {
+        color: var(--color-accent);
+        font-weight: 600;
+      }
+      h2 {
+        color: var(--color-white);
+        margin-bottom: 1rem;
+      }
+      p {
+        font-size: 1.1rem;
+        max-width: 600px;
+        line-height: 1.7;
+      }
+    }
+  }
+
+  .locations-list {
+    margin-bottom: 2rem;
+
+    &__title {
+      color: var(--color-white);
+      font-family: var(--font-primary);
+      font-size: 1.25rem;
+      border-bottom: 2px solid var(--color-accent);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+  }
+
+  .location-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateX(10px);
+    }
+
+    i {
+      font-size: 1.8rem;
+      color: var(--color-accent);
+      margin-top: 5px;
+    }
+
+    p {
+      line-height: 1.6;
+      strong {
+        color: var(--color-light-gray);
+      }
+    }
+  }
+
+  .other-cities-text {
+    line-height: 1.7;
+    font-style: italic;
+  }
+}
+
+// Animación para el ícono
+@keyframes float-anim {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}

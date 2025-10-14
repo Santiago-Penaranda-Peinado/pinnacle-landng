@@ -1,75 +1,161 @@
-// src/scss/partials/_cta-final.scss
+// src/scss/partials/_cta-final.scss 
 @use 'variables' as *;
 
 .cta-final-section {
   padding: 80px 0;
-  background-color: var(--color-dark-blue);
+  background-color: var(--color-dark-blue); // Fondo oscuro para contraste
   color: var(--color-white);
+  position: relative;
+  overflow: hidden;
 
   &__container {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
 
     @media (min-width: 992px) {
       flex-direction: row;
-      align-items: center;
-      gap: 60px;
+      text-align: left;
+      gap: 5rem;
+      justify-content: center; // Centrar el contenido horizontalmente
     }
   }
 
-  &__image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+  &__image-wrapper {
+    position: relative;
+    width: 200px; // Tamaño del círculo contenedor
+    height: 200px;
+    // Animación de entrada
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn-up 0.8s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 
-    .image-placeholder {
-      width: 200px;
-      height: 200px;
-      background-color: var(--color-mid-blue);
+    @media (min-width: 992px) {
+      width: 250px;
+      height: 250px;
+      flex-shrink: 0; // Evita que se encoja la imagen
+    }
+  }
+
+  &__image-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); // Sombra sutil
+
+    // Borde animado
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -5px; // Extender el borde fuera del círculo
+      border: 3px solid transparent;
       border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--color-accent);
+      background: linear-gradient(
+        45deg,
+        var(--color-accent) 0%,
+        var(--color-dark-blue) 50%,
+        var(--color-accent) 100%
+      );
+      background-size: 200% 200%; // Para el efecto de gradiente animado
+      animation: rotate-border 4s linear infinite; // Animación de rotación del borde
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: exclude;
+    }
 
-      i {
-        font-size: 4rem;
-        margin-bottom: 10px;
-      }
-
-      p {
-        font-weight: 600;
-      }
+    // Aseguramos que la imagen no se recorte
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block; // Eliminar espacio extra bajo la imagen
     }
   }
 
   &__content {
-    flex: 1;
-    text-align: center;
-
-    @media (min-width: 992px) {
-      text-align: left;
-    }
+    max-width: 600px;
+    // Animación de entrada
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn-up 0.8s 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 
     .quote {
-      font-size: 1.5rem;
+      font-size: clamp(1.4rem, 3vw, 2.2rem); // Tipografía fluida
       font-style: italic;
-      margin-bottom: 30px;
-      line-height: 1.6;
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+      color: var(--color-white);
+      position: relative;
+      padding: 0 20px;
+
+      &::before, &::after {
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        font-size: 2rem;
+        color: var(--color-accent);
+        position: absolute;
+        opacity: 0.7;
+      }
+      &::before {
+        content: '\f10d'; // Icono de comilla de apertura
+        left: 0;
+        top: 0;
+      }
+      &::after {
+        content: '\f10e'; // Icono de comilla de cierre
+        right: 0;
+        bottom: 0;
+      }
     }
 
     &__name {
       display: block;
+      font-size: 1.3rem;
       font-weight: 700;
-      margin-bottom: 5px;
+      color: var(--color-white);
+      margin-top: 1rem;
     }
 
     &__title {
       display: block;
+      font-size: 0.95rem;
       color: var(--color-light-gray);
-      margin-bottom: 30px;
+      margin-bottom: 2rem;
+      opacity: 0.8;
     }
+
+    .btn--accent {
+      // Reutiliza los estilos de botón existentes, pero puedes añadir un toque extra
+      font-size: 1.1rem;
+      padding: 15px 30px;
+      // Puedes añadir un efecto de sombra o hover más pronunciado si quieres
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(252, 163, 17, 0.3);
+      }
+    }
+  }
+}
+
+// Keyframes para la animación del borde giratorio
+@keyframes rotate-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+// Keyframes para animaciones (si no los tienes ya definidos globalmente)
+@keyframes fadeIn-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
