@@ -14,6 +14,51 @@
   <script type="module" src="/src/main.js"></script>
 </head>
 <body>
+  <!-- Agrega esto justo después de la etiqueta <body> -->
+  <div id="preloader" class="preloader">
+    <div class="preloader__container">
+      
+      <!-- Logo real animado -->
+      <div class="preloader__logo">
+        <div class="preloader__logo-image">
+          <img src="/logo/logotop.png" alt="Pinnacle Communications Logo" class="preloader__logo-img">
+        </div>
+        <div class="preloader__logo-text">
+          <span class="preloader__logo-primary">Pinnacle</span>
+          <span class="preloader__logo-secondary">Communications</span>
+        </div>
+      </div>
+      
+      <!-- Spinner principal -->
+      <div class="preloader__spinner">
+        <div class="preloader__spinner-ring preloader__spinner-ring--outer"></div>
+        <div class="preloader__spinner-ring preloader__spinner-ring--middle"></div>
+        <div class="preloader__spinner-ring preloader__spinner-ring--inner"></div>
+        <div class="preloader__spinner-dot"></div>
+      </div>
+      
+      <!-- Barra de progreso -->
+      <div class="preloader__progress">
+        <div class="preloader__progress-bar">
+          <div class="preloader__progress-fill"></div>
+        </div>
+        <span class="preloader__progress-text">0%</span>
+      </div>
+      
+      <!-- Mensaje de carga -->
+      <div class="preloader__message">
+        <p>Preparando tu experiencia de liderazgo...</p>
+      </div>
+      
+      <!-- Elementos decorativos -->
+      <div class="preloader__decorations">
+        <div class="preloader__decoration preloader__decoration--1"></div>
+        <div class="preloader__decoration preloader__decoration--2"></div>
+        <div class="preloader__decoration preloader__decoration--3"></div>
+      </div>
+      
+    </div>
+  </div>
 
   <header class="site-header">
     <div class="container site-header__container">
@@ -511,42 +556,204 @@
     
     <section id="proceso" class="process-section">
       <div class="container">
+        
+        <!-- Elementos decorativos de fondo -->
+        <div class="process-section__bg-elements">
+          <div class="process-section__bg-circle process-section__bg-circle--1"></div>
+          <div class="process-section__bg-circle process-section__bg-circle--2"></div>
+          <div class="process-section__bg-circle process-section__bg-circle--3"></div>
+        </div>
+        
         <div class="section-header">
           <span class="pre-title">¿Cómo Trabajamos?</span>
           <h2>Un Traje a la Medida para tu Empresa</h2>
+          <p class="section-subtitle">Metodología probada que garantiza resultados tangibles y duraderos para tu organización</p>
         </div>
+        
         <div class="process-section__steps">
+          
+          <!-- Paso 1 -->
           <div class="process-step">
-            <div class="step-number">1</div>
-            <h3>Diagnóstico Inicial</h3>
-            <p>Le damos prioridad a entender tus deficiencias y objetivos para adaptar nuestros programas a las necesidades reales de tu empresa.</p>
+            <div class="process-step__header">
+              <div class="step-number">
+                <span class="step-digit">1</span>
+                <div class="step-connector"></div>
+              </div>
+              <div class="step-icon">
+                <i class="fas fa-search"></i>
+              </div>
+            </div>
+            
+            <div class="process-step__content">
+              <h3>Diagnóstico Inicial</h3>
+              <p>Le damos prioridad a entender tus deficiencias y objetivos para adaptar nuestros programas a las necesidades reales de tu empresa.</p>
+              
+              <!-- Lista de beneficios -->
+              <ul class="step-features">
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span>Análisis de competencias</span>
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span>Evaluación de necesidades</span>
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span>Definición de objetivos</span>
+                </li>
+              </ul>
+            </div>
           </div>
+          
+          <!-- Paso 2 -->
           <div class="process-step">
-            <div class="step-number">2</div>
-            <h3>Orientación y Diseño</h3>
-            <p>Te orientamos para elegir el curso y la metodología más adecuada, diseñando una intervención con impactos predecibles y duraderos.</p>
+            <div class="process-step__header">
+              <div class="step-number">
+                <span class="step-digit">2</span>
+                <div class="step-connector"></div>
+              </div>
+              <div class="step-icon">
+                <i class="fas fa-pen-fancy"></i>
+              </div>
+            </div>
+            
+            <div class="process-step__content">
+              <h3>Orientación y Diseño</h3>
+              <p>Te orientamos para elegir el curso y la metodología más adecuada, diseñando una intervención con impactos predecibles y duraderos.</p>
+              
+              <!-- Lista de beneficios -->
+              <ul class="step-features">
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span>Plan personalizado</span>
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span>Metodología adaptada</span>
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span>Cronograma definido</span>
+                </li>
+              </ul>
+            </div>
           </div>
+          
+          <!-- Paso 3 -->
           <div class="process-step">
-            <div class="step-number">3</div>
-            <h3>Implementación y Seguimiento</h3>
-            <p>Impartimos talleres presenciales o remotos y garantizamos el aprendizaje con una constancia de valor curricular y 3 meses de coaching.</p>
+            <div class="process-step__header">
+              <div class="step-number">
+                <span class="step-digit">3</span>
+              </div>
+              <div class="step-icon">
+                <i class="fas fa-rocket"></i>
+              </div>
+            </div>
+            
+            <div class="process-step__content">
+              <h3>Implementación y Seguimiento</h3>
+              <p>Impartimos talleres presenciales o remotos y garantizamos el aprendizaje con una constancia de valor curricular y 3 meses de coaching.</p>
+              
+              <!-- Lista de beneficios -->
+              <ul class="step-features">
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span>Sesión inicial sin compromiso</span>
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span>3 meses de coaching incluido</span>
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span>Constancia de valor curricular</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!-- CTA adicional -->
+        <div class="process-section__cta">
+          <div class="process-cta">
+            <div class="process-cta__icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="process-cta__content">
+              <h4>¿Listo para comenzar?</h4>
+              <p>Agenda tu diagnóstico inicial sin costo y descubre cómo podemos potenciar tu equipo</p>
+            </div>
+            <a href="#contacto" class="btn btn--accent process-cta__button">
+              <span class="btn-text">Agendar Diagnóstico</span>
+              <i class="btn-icon fas fa-arrow-right"></i>
+            </a>
           </div>
         </div>
+        
       </div>
     </section>
 
     <section id="cta-final" class="cta-final-section">
       <div class="container cta-final-section__container">
+        <!-- Elementos decorativos de fondo -->
+        <div class="cta-final-section__bg-elements">
+          <div class="cta-final-section__bg-circle cta-final-section__bg-circle--1"></div>
+          <div class="cta-final-section__bg-circle cta-final-section__bg-circle--2"></div>
+          <div class="cta-final-section__bg-circle cta-final-section__bg-circle--3"></div>
+        </div>
+        
         <div class="cta-final-section__image-wrapper">
           <div class="cta-final-section__image-circle">
-            <img src="/images/alfonso-cortina.png" alt="Alfonso Cortina, Director General de Pinnacle Communications" class="cta-final-section__image">
+            <img src="/images/alfonso-cortina.png" alt="Alfonso Cortina, Director General de Pinnacle Communications" class="cta-final-section__image" loading="lazy">
+            
+            <!-- Badge de verificación -->
+            <div class="cta-final-section__verified-badge">
+              <i class="fas fa-check"></i>
+            </div>
           </div>
+          
+          <!-- Elementos decorativos alrededor de la imagen -->
+          <div class="cta-final-section__image-decoration cta-final-section__image-decoration--1"></div>
+          <div class="cta-final-section__image-decoration cta-final-section__image-decoration--2"></div>
         </div>
+        
         <div class="cta-final-section__content">
-          <p class="quote"> Te atenderé personalmente para diseñar la estrategia clave que necesita tu equipo.</p>
-          <span class="cta-final-section__name">Alfonso Cortina</span>
-          <span class="cta-final-section__title">Director General, Pinnacle Communications S. A.</span>
-          <a href="#contacto" class="btn btn--accent cta-final-section__button">¡Desarrolla tu Liderazgo Ahora!</a>
+          <!-- Badge de atención personalizada -->
+          <div class="cta-final-section__personal-badge">
+            <i class="fas fa-crown"></i>
+            <span>Atención Personalizada</span>
+          </div>
+          
+          <blockquote class="quote">
+            <p>Te atenderé personalmente para diseñar la estrategia clave que necesita tu equipo.</p>
+          </blockquote>
+          
+          <div class="cta-final-section__author">
+            <span class="cta-final-section__name">Alfonso Cortina</span>
+            <span class="cta-final-section__title">Director General, Pinnacle Communications S. A.</span>
+            
+            <!-- Trust indicators -->
+            <div class="cta-final-section__trust-indicators">
+              <div class="trust-item">
+                <i class="fas fa-medal"></i>
+                <span>+15 años de experiencia</span>
+              </div>
+              <div class="trust-item">
+                <i class="fas fa-users"></i>
+                <span>+200 equipos formados</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="cta-final-section__actions">
+            <a href="#contacto" class="btn btn--accent cta-final-section__button">
+              <span class="btn-text">¡Desarrolla tu Liderazgo Ahora!</span>
+              <i class="btn-icon fas fa-arrow-right"></i>
+              <div class="btn-hover-effect"></div>
+            </a>
+          </div>
         </div>
       </div>
     </section>

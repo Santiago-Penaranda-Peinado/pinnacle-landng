@@ -259,11 +259,101 @@ const enhanceClientsSection = () => {
   window.addEventListener('scroll', handleScroll);
 };
 
+/**
+ * FUNCIÓN PARA EL PRELOADER MEJORADO
+ */
+const initPreloader = () => {
+  const preloader = document.getElementById('preloader');
+  const progressFill = document.querySelector('.preloader__progress-fill');
+  const progressText = document.querySelector('.preloader__progress-text');
+  
+  if (!preloader) return;
+
+  let progress = 0;
+  const targetProgress = 100;
+  const duration = 2500; // 2.5 segundos
+  const interval = 50; // Actualizar cada 50ms
+  const steps = duration / interval;
+  const increment = targetProgress / steps;
+
+  // Simular progreso de carga
+  const progressInterval = setInterval(() => {
+    progress += increment;
+    
+    if (progress >= targetProgress) {
+      progress = targetProgress;
+      clearInterval(progressInterval);
+      
+      // Esperar un poco más para una transición suave
+      setTimeout(() => {
+        preloader.classList.add('loaded');
+        
+        // Remover completamente del DOM después de la animación
+        setTimeout(() => {
+          preloader.remove();
+        }, 800);
+      }, 300);
+    }
+    
+    // Actualizar barra de progreso y texto
+    if (progressFill) {
+      progressFill.style.width = `${progress}%`;
+    }
+    if (progressText) {
+      progressText.textContent = `${Math.floor(progress)}%`;
+    }
+  }, interval);
+
+  // Fallback: si hay algún error, asegurar que el preloader se quite
+  window.addEventListener('load', () => {
+    clearInterval(progressInterval);
+    setTimeout(() => {
+      if (preloader && !preloader.classList.contains('loaded')) {
+        preloader.classList.add('loaded');
+        setTimeout(() => preloader.remove(), 800);
+      }
+    }, 1000);
+  });
+
+  // Fallback por timeout (10 segundos máximo)
+  setTimeout(() => {
+    if (preloader && !preloader.classList.contains('loaded')) {
+      clearInterval(progressInterval);
+      preloader.classList.add('loaded');
+      setTimeout(() => preloader.remove(), 800);
+    }
+  }, 10000);
+};
+
+/**
+ * FUNCIÓN PARA PREVENIR SCROLL DURANTE EL PRELOADER
+ */
+const preventScrollDuringPreload = () => {
+  const body = document.body;
+  
+  // Prevenir scroll
+  body.style.overflow = 'hidden';
+  
+  // Restaurar scroll cuando el preloader termine
+  const checkPreloaderRemoved = setInterval(() => {
+    const preloader = document.getElementById('preloader');
+    if (!preloader || preloader.classList.contains('loaded')) {
+      body.style.overflow = '';
+      clearInterval(checkPreloaderRemoved);
+    }
+  }, 100);
+};
+
 
 // --- INICIALIZAMOS TODAS LAS FUNCIONES ---
+  // Inicializar preloader primero
+  preventScrollDuringPreload();
+  initPreloader();
+  
+  // Luego inicializar el resto de funciones
   initHeaderScroll();
   initMobileMenu();
-  initHeroSection(); // Simplemente la llamas directamente
+  initHeroSection();
   initClientsCarousel();
   enhanceClientsSection();
 

@@ -6,6 +6,7 @@
 @use 'partials/layout'; 
 
 // Parciales de componentes
+@use 'partials/preloader';
 @use 'partials/header'; 
 @use 'partials/hero';   
 @use 'partials/mobile-nav';

@@ -2,40 +2,86 @@
 @use 'variables' as *;
 
 .cta-final-section {
-  padding: 80px 0;
-  background-color: var(--color-dark-blue); // Fondo oscuro para contraste
+  padding: 100px 0;
+  background: linear-gradient(135deg, var(--color-dark-blue) 0%, var(--color-mid-blue) 50%, var(--color-dark-blue) 100%);
   color: var(--color-white);
   position: relative;
   overflow: hidden;
+
+  // Elementos decorativos de fondo
+  &__bg-elements {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &__bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-accent) 0%, transparent 70%);
+    opacity: 0.03;
+    animation: float 6s ease-in-out infinite;
+
+    &--1 {
+      width: 300px;
+      height: 300px;
+      top: -150px;
+      right: -150px;
+      animation-delay: 0s;
+    }
+
+    &--2 {
+      width: 200px;
+      height: 200px;
+      bottom: -100px;
+      left: 10%;
+      animation-delay: 2s;
+    }
+
+    &--3 {
+      width: 150px;
+      height: 150px;
+      top: 20%;
+      left: -75px;
+      animation-delay: 4s;
+    }
+  }
 
   &__container {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 3rem;
+    gap: 4rem;
+    position: relative;
+    z-index: 2;
 
     @media (min-width: 992px) {
       flex-direction: row;
       text-align: left;
-      gap: 5rem;
-      justify-content: center; // Centrar el contenido horizontalmente
+      gap: 6rem;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 
   &__image-wrapper {
     position: relative;
-    width: 200px; // Tamaño del círculo contenedor
-    height: 200px;
-    // Animación de entrada
+    width: 220px;
+    height: 220px;
     opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn-up 0.8s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    transform: translateY(30px) scale(0.9);
+    animation: fadeIn-up 0.8s 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+
+    @media (min-width: 768px) {
+      width: 280px;
+      height: 280px;
+    }
 
     @media (min-width: 992px) {
-      width: 250px;
-      height: 250px;
-      flex-shrink: 0; // Evita que se encoja la imagen
+      width: 320px;
+      height: 320px;
+      flex-shrink: 0;
     }
   }
 
@@ -45,117 +91,368 @@
     border-radius: 50%;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); // Sombra sutil
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 8px 16px rgba(0, 0, 0, 0.3);
 
-    // Borde animado
+    // Borde animado mejorado
     &::before {
       content: '';
       position: absolute;
-      inset: -5px; // Extender el borde fuera del círculo
-      border: 3px solid transparent;
+      inset: -4px;
       border-radius: 50%;
       background: linear-gradient(
-        45deg,
+        135deg,
         var(--color-accent) 0%,
-        var(--color-dark-blue) 50%,
+        #ffd166 25%,
+        var(--color-accent) 50%,
+        #ffd166 75%,
         var(--color-accent) 100%
       );
-      background-size: 200% 200%; // Para el efecto de gradiente animado
-      animation: rotate-border 4s linear infinite; // Animación de rotación del borde
+      background-size: 400% 400%;
+      animation: rotate-gradient 8s linear infinite;
       mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       mask-composite: exclude;
       -webkit-mask-composite: exclude;
+      z-index: 1;
     }
 
-    // Aseguramos que la imagen no se recorte
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
-      display: block; // Eliminar espacio extra bajo la imagen
+      display: block;
+      position: relative;
+      z-index: 2;
+      transition: transform 0.5s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  // Badge de verificación
+  &__verified-badge {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--color-accent) 0%, #e69500 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-dark-blue);
+    font-size: 0.9rem;
+    border: 3px solid var(--color-dark-blue);
+    z-index: 3;
+    animation: pulse 2s infinite;
+  }
+
+  // Elementos decorativos de la imagen
+  &__image-decoration {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-accent) 0%, transparent 70%);
+    opacity: 0.1;
+    animation: float 4s ease-in-out infinite;
+
+    &--1 {
+      width: 80px;
+      height: 80px;
+      top: -20px;
+      left: -20px;
+      animation-delay: 1s;
+    }
+
+    &--2 {
+      width: 60px;
+      height: 60px;
+      bottom: -10px;
+      right: -10px;
+      animation-delay: 2s;
     }
   }
 
   &__content {
     max-width: 600px;
-    // Animación de entrada
     opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn-up 0.8s 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    transform: translateY(30px);
+    animation: fadeIn-up 0.8s 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 
-    .quote {
-      font-size: clamp(1.4rem, 3vw, 2.2rem); // Tipografía fluida
-      font-style: italic;
-      line-height: 1.4;
-      margin-bottom: 1.5rem;
-      color: var(--color-white);
-      position: relative;
-      padding: 0 20px;
+    @media (min-width: 992px) {
+      flex: 1;
+    }
+  }
 
-      &::before, &::after {
-        font-family: 'Font Awesome 6 Free';
-        font-weight: 900;
-        font-size: 2rem;
-        color: var(--color-accent);
-        position: absolute;
-        opacity: 0.7;
-      }
-      &::before {
-        content: '\f10d'; // Icono de comilla de apertura
-        left: 0;
-        top: 0;
-      }
-      &::after {
-        content: '\f10e'; // Icono de comilla de cierre
-        right: 0;
-        bottom: 0;
-      }
+  // Badge de atención personalizada
+  &__personal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(252, 163, 17, 0.15);
+    border: 1px solid rgba(252, 163, 17, 0.3);
+    color: var(--color-accent);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+
+    i {
+      font-size: 0.8rem;
+    }
+  }
+
+  .quote {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-style: italic;
+    line-height: 1.3;
+    margin-bottom: 2rem;
+    color: var(--color-white);
+    position: relative;
+    padding: 0 2rem;
+
+    &::before, &::after {
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      font-size: 2.5rem;
+      color: var(--color-accent);
+      position: absolute;
+      opacity: 0.3;
     }
 
-    &__name {
-      display: block;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--color-white);
-      margin-top: 1rem;
+    &::before {
+      content: '\f10d';
+      left: -1rem;
+      top: -1rem;
     }
 
-    &__title {
-      display: block;
-      font-size: 0.95rem;
+    &::after {
+      content: '\f10e';
+      right: -1rem;
+      bottom: -1rem;
+    }
+  }
+
+  &__author {
+    margin-bottom: 3rem;
+  }
+
+  &__name {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+  }
+
+  &__title {
+    display: block;
+    font-size: 1rem;
+    color: var(--color-light-gray);
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+  }
+
+  // Trust indicators
+  &__trust-indicators {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      font-size: 0.85rem;
       color: var(--color-light-gray);
-      margin-bottom: 2rem;
-      opacity: 0.8;
+
+      i {
+        color: var(--color-accent);
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    @media (min-width: 768px) {
+      align-items: flex-start;
+    }
+  }
+
+  .btn--accent {
+    font-size: 1.1rem;
+    padding: 1.25rem 2.5rem;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--color-accent) 0%, #e69500 100%);
+    color: var(--color-dark-blue);
+    font-weight: 700;
+
+    .btn-text {
+      position: relative;
+      z-index: 2;
     }
 
-    .btn--accent {
-      // Reutiliza los estilos de botón existentes, pero puedes añadir un toque extra
-      font-size: 1.1rem;
-      padding: 15px 30px;
-      // Puedes añadir un efecto de sombra o hover más pronunciado si quieres
-      &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(252, 163, 17, 0.3);
+    .btn-icon {
+      position: relative;
+      z-index: 2;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-hover-effect {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.6s ease;
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 
+        0 20px 40px rgba(252, 163, 17, 0.4),
+        0 8px 16px rgba(252, 163, 17, 0.3);
+
+      .btn-icon {
+        transform: translateX(5px);
       }
+
+      .btn-hover-effect {
+        left: 100%;
+      }
+    }
+  }
+
+  // Garantía
+  &__guarantee {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-light-gray);
+    font-size: 0.9rem;
+    opacity: 0.8;
+
+    i {
+      color: var(--color-accent);
+      font-size: 0.8rem;
     }
   }
 }
 
-// Keyframes para la animación del borde giratorio
-@keyframes rotate-border {
+// Keyframes mejorados
+@keyframes rotate-gradient {
   0% {
     background-position: 0% 50%;
   }
+  50% {
+    background-position: 100% 50%;
+  }
   100% {
-    background-position: 200% 50%;
+    background-position: 0% 50%;
   }
 }
 
-// Keyframes para animaciones (si no los tienes ya definidos globalmente)
 @keyframes fadeIn-up {
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(252, 163, 17, 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(252, 163, 17, 0);
+  }
+}
+
+// Responsive
+@media (max-width: 991px) {
+  .cta-final-section {
+    padding: 80px 0;
+
+    &__container {
+      gap: 3rem;
+    }
+
+    .quote {
+      padding: 0 1rem;
+
+      &::before {
+        left: -0.5rem;
+      }
+
+      &::after {
+        right: -0.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .cta-final-section {
+    padding: 60px 0;
+
+    &__image-wrapper {
+      width: 200px;
+      height: 200px;
+    }
+
+    &__trust-indicators {
+      justify-content: center;
+    }
+
+    .quote {
+      font-size: clamp(1.3rem, 5vw, 2rem);
+    }
+  }
+}
+
+// Soporte para reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .cta-final-section {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
