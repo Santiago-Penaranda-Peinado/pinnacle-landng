@@ -64,7 +64,13 @@
     <div class="container site-header__container">
       <a href="#hero" class="site-header__logo">
         <img src="/logo/logotop.png" alt="Pinnacle Communications Logo" class="site-header__logo-img">
-        <span class="site-header__logo-text">Pinnacle</span>
+        <div class="site-header__logo-content">
+          <div class="site-header__brand-wrapper">
+            <span class="site-header__logo-title">Pinnacle</span>
+            <span class="site-header__logo-subtitle">Communications</span>
+          </div>
+          <span class="site-header__logo-slogan">Innovación + Liderazgo = Crecimiento</span>
+        </div>
       </a>
 
       <nav id="main-navigation" class="site-header__nav" aria-label="Navegación principal">
@@ -143,7 +149,7 @@
             <!-- Badge de confianza -->
             <div class="hero-badge">
               <i class="fa-solid fa-star"></i>
-              <span>+11 años de experiencia</span>
+              <span>+15 años de experiencia</span>
             </div>
             
             <h1 class="hero-section__title">
@@ -157,13 +163,20 @@
             </p>
             
             <div class="hero-section__contact-info">
-              <div class="contact-item">
+              <a href="tel:5554316702"><div class="contact-item">
                 <i class="fas fa-phone"></i>
                 <div>
                   <span class="contact-label">Llama o envía un WhatsApp</span>
                   <strong class="contact-number">55 5431 6702</strong>
                 </div>
-              </div>
+              </div></a>
+              <a href="mailto:ac@pinnacle.com.mx"><div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <span class="contact-label">Envíanos un correo</span>
+                  <strong class="contact-number">ac@pinnacle.com.mx</strong>
+                </div>
+              </div></a>
             </div>
 
             <!-- Trust indicators para móvil -->
@@ -174,7 +187,7 @@
               </div>
               <div class="trust-item">
                 <i class="fa-solid fa-users"></i>
-                <span>+500 empresas</span>
+                <span>+200 empresas</span>
               </div>
             </div>
           </div>
@@ -264,15 +277,15 @@
         <!-- Estadísticas rápidas -->
         <div class="clients-stats">
           <div class="stat-item">
-            <div class="stat-number" data-count="11">0</div>
+            <div class="stat-number" data-count="15">0</div>
             <div class="stat-label">Años de Experiencia</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number" data-count="500">0</div>
+            <div class="stat-number" data-count="200">0</div>
             <div class="stat-label">Empresas Atendidas</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number" data-count="50">0</div>
+            <div class="stat-number" data-count="10">0</div>
             <div class="stat-label">Países</div>
           </div>
         </div>
@@ -448,17 +461,52 @@
       <div class="container locations-section__container">
         
         <div class="locations-section__visual">
-          <div class="map-icon-wrapper">
-            <i class="fa-solid fa-map-location-dot"></i>
+          <div class="swiper locations-carousel">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="location-image-card">
+                  <img src="/locations/france.jpg" alt="Club France - Instalaciones de Lujo" loading="lazy">
+                  <div class="image-overlay">
+                    <span class="location-tag">Clubes de Prestigio</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="location-image-card">
+                  <img src="/locations/industrial.jpg" alt="Hotel Business Class" loading="lazy">
+                  <div class="image-overlay">
+                    <span class="location-tag">Hoteles 5 Estrellas</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="location-image-card">
+                  <img src="/locations/university-club.jpg" alt="Sala de Juntas Ejecutiva" loading="lazy">
+                  <div class="image-overlay">
+                    <span class="location-tag">In-Company</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="locations-pagination"></div>
+            
+            <!-- Decoración de brillo -->
+            <div class="shine-effect"></div>
           </div>
-          <h3 class="visual__tagline">Sedes de Prestigio para una Formación de Primer Nivel</h3>
+
+          <!-- Elementos flotantes decorativos -->
+          <div class="floating-badge badge-top-right">
+            <i class="fa-solid fa-star"></i>
+            <span>Premium</span>
+          </div>
         </div>
 
         <div class="locations-section__content">
           <div class="section-header">
             <span class="pre-title">Nuestras Sedes</span>
             <h2>Ubicaciones para Cursos Presenciales</h2>
-            <p>Realizamos nuestros cursos en clubes y hoteles de prestigio para garantizar una experiencia cómoda y profesional. También nos adaptamos a tus necesidades impartiendo la formación en tus propias oficinas.</p>
+            <p>Recomendamos modalidad presencial optimizando comunicación efectiva y confianza. También nos adaptamos a tus necesidades impartiendo la formación en tus propias oficinas.</p>
           </div>
 
           <div class="locations-list">
@@ -692,6 +740,40 @@
           </div>
         </div>
         
+      </div>
+    </section>
+
+    <!-- Nueva Sección de Constancia -->
+    <section id="constancia" class="certificate-section">
+      <div class="container certificate-section__container">
+        <!-- Columna Texto (Izquierda) -->
+        <div class="certificate-section__content">
+          <span class="section-label">Certificación Oficial</span>
+          <h2>Constancia con Valor <br><span>Curricular Internacional</span></h2>
+          <p>
+            Al concluir el curso obtendrás una constancia con valor curricular internacional que respalda tus nuevas competencias. Además, garantizamos la implementación de lo aprendido mediante un seguimiento personalizado.
+          </p>
+          
+          <ul class="certificate-features">
+            <li>
+              <i class="fa-solid fa-certificate"></i>
+              <span>Aval internacional de metodología comprobada.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-user-graduate"></i>
+              <span>Reconocimiento oficial de competencias directivas.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-handshake-angle"></i>
+              <span>Coaching post-curso de 3 meses incluido.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Columna Imagen (Derecha) -->
+        <div class="certificate-section__image-wrapper">
+          <img src="/images/certificado-liderazgo-pinnacle.jpg" alt="Ejemplo de Constancia con Valor Curricular" loading="lazy">
+        </div>
       </div>
     </section>
 

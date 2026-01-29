@@ -3,7 +3,7 @@
 // Importamos Swiper y sus estilos.
 import Swiper from 'swiper';
 // Importa los MÓDULOS que vas a usar
-import { Autoplay, Navigation } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination, EffectCards } from 'swiper/modules';
 
 // Importa los ESTILOS base y los de los módulos
 import './scss/style.scss';
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const formInputs = document.querySelectorAll('.form-group__input');
 
     // Manejar carga del video
-    if (video) {
+    if (video && loadingOverlay) {
       video.addEventListener('loadeddata', () => {
         loadingOverlay.classList.add('loaded');
       });
@@ -178,20 +178,20 @@ const initClientsCarousel = () => {
     },
     breakpoints: {
       480: {
-        slidesPerView: 3,
-        spaceBetween: 25,
+        slidesPerView: 2,
+        spaceBetween: 20,
       },
       768: {
-        slidesPerView: 4,
+        slidesPerView: 3,
         spaceBetween: 30,
       },
       1024: {
-        slidesPerView: 5,
+        slidesPerView: 4,
         spaceBetween: 40,
       },
       1200: {
-        slidesPerView: 6,
-        spaceBetween: 50,
+        slidesPerView: 5,
+        spaceBetween: 40,
       },
     },
     on: {
@@ -356,5 +356,36 @@ const preventScrollDuringPreload = () => {
   initHeroSection();
   initClientsCarousel();
   enhanceClientsSection();
+  initLocationsCarousel();
+
+  /**
+   * FUNCIÓN PARA EL CARRUSEL DE UBICACIONES
+   */
+  function initLocationsCarousel() {
+    const locationsCarousel = document.querySelector('.locations-carousel');
+    if (!locationsCarousel) return;
+
+    new Swiper(locationsCarousel, {
+      modules: [Autoplay, Navigation, Pagination, EffectCards], 
+      effect: 'cards', // Efecto de cartas apiladas
+      grabCursor: true,
+      cardsEffect: {
+        perSlideOffset: 8,
+        perSlideRotate: 2,
+        slideShadows: true,
+      },
+      speed: 1000,
+      loop: false, // Desactivamos loop infinito real porque tenemos pocos slides (3)
+      rewind: true, // Habilitamos rewind para que vuelva al principio al terminar
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.locations-pagination',
+        clickable: true,
+      },
+    });
+  }
 
 });

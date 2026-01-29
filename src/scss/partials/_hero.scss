@@ -164,6 +164,7 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
       transition: all 0.3s ease;
+      margin-top: 0.5rem;
 
       &:hover {
         background: rgba(255, 255, 255, 0.1);
@@ -247,7 +248,7 @@
     }
 
     @media (min-width: 1200px) {
-      padding: 3rem;
+      padding: 6rem 3rem 6rem 3rem;
     }
 
     // Header del formulario
