@@ -1,0 +1,27 @@
+// src/scss/partials/_scrollbar.scss
+@use 'variables' as *;
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-light-blue) var(--color-dark-blue);
+}
+
+/* Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dark-blue);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-light-blue);
+  border-radius: 6px;
+  border: 3px solid var(--color-dark-blue); // Crea un espacio alrededor del thumb
+
+  &:hover {
+    background-color: var(--color-accent);
+  }
+}

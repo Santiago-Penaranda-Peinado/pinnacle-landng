@@ -1,0 +1,125 @@
+// src/scss/partials/_floating-btn.scss
+@use 'variables' as *;
+
+.floating-call-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 9999;
+  text-decoration: none;
+  font-family: var(--font-primary);
+  
+  // Pulse Effect Layer
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fca3116b;
+    border-radius: 50px;
+    z-index: -1;
+    opacity: 0.5;
+    animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    background: var(--color-accent); // Dorado/Ámbar
+    color: var(--color-dark-blue);
+    padding: 0.8rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(252, 163, 17, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    height: 60px;
+    min-width: 60px; // Círculo inicialmente
+  }
+  
+  i {
+    font-size: 1.5rem;
+    min-width: 34px; // Espacio fijo para el icono
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  &__text {
+    max-width: 0; // Oculto inicialmente
+    opacity: 0;
+    white-space: nowrap;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.4s ease;
+    margin-left: 0;
+  }
+  
+  // Hover Effect (Desktop)
+  &:hover {
+    .floating-call-btn__content {
+      padding-right: 1.5rem; // Espacio extra al expandir
+      background: var(--color-white);
+      color: var(--color-accent);
+      border: 2px solid var(--color-accent);
+      transform: scale(1.05);
+    }
+    
+    i {
+      transform: rotate(15deg) scale(1.1);
+    }
+    
+    .floating-call-btn__text {
+      max-width: 200px;
+      opacity: 1;
+      margin-left: 0.5rem;
+    }
+  }
+
+  // Animation de entrada
+  animation: slideInUp 0.6s 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+// Mobile Responsive
+@media (max-width: 768px) {
+  .floating-call-btn {
+    bottom: 20px;
+    right: 20px;
+
+    &__content {
+      height: 55px;
+      min-width: 55px;
+      padding: 0; // Centrado perfecto
+      justify-content: center;
+    }
+    
+    i {
+      font-size: 1.4rem;
+    }
+  }
+}

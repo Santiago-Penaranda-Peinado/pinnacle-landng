@@ -3,6 +3,7 @@
 // Parciales de base
 @use 'partials/variables';
 @use 'partials/reset';
+@use 'partials/scrollbar';
 @use 'partials/layout'; 
 
 // Parciales de componentes
@@ -18,3 +19,4 @@
 @use 'partials/certificate';
 @use 'partials/cta-final';
 @use 'partials/footer';
+@use 'partials/floating-btn';
